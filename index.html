@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>For Vini 🌸</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,800;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+:root{--deep:#8f1650;--rose:#d92f7e;--pink:#f47bb0;--blush:#ffd9e8;--cream:#fff6f9;--ink:#4a0e2e;--leaf:#4c9a6a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;overflow:hidden}
+body{font-family:Fraunces,Georgia,serif;color:var(--ink);background:linear-gradient(135deg,#ffd9e8,#ffb3d1,#f9a0c4,#ffe3ee);background-size:300% 300%;animation:drift 14s ease infinite}
+@keyframes drift{0%,100%{background-position:0 30%}50%{background-position:100% 70%}}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:1}
+.screen{position:fixed;inset:0;z-index:2;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px 16px;height:100dvh}
+.screen.on{display:flex;animation:rise .55s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes rise{from{opacity:0;transform:translateY(26px) scale(.97)}}
+h1{font-size:clamp(44px,12vw,92px);line-height:1;margin:.1em 0;color:var(--deep);font-weight:800}
+h2{font-size:clamp(26px,6.5vw,44px);line-height:1.12;margin:.2em 0 .4em;color:var(--deep)}
+.hand{font-family:Caveat,cursive;font-size:clamp(23px,5.5vw,32px);color:var(--rose);margin:.2em 0}
+.card{background:rgba(255,246,249,.86);backdrop-filter:blur(8px);border-radius:26px;padding:26px 22px;width:min(460px,100%);box-shadow:0 18px 50px rgba(143,22,80,.25)}
+button{font:inherit;font-weight:800;border:0;border-radius:99px;padding:14px 28px;background:var(--rose);color:#fff;font-size:18px;cursor:pointer;margin:6px;box-shadow:0 6px 0 var(--deep);transition:transform .1s,box-shadow .1s;touch-action:manipulation}
+button:active{transform:translateY(4px);box-shadow:0 2px 0 var(--deep)}
+button.alt{background:#fff;color:var(--deep);box-shadow:0 6px 0 var(--pink)}
+.lily{display:block}
+#bud{width:min(62vw,300px);height:min(62vw,300px);cursor:pointer;background:none;box-shadow:none;padding:0;margin:0}
+#bud:active{transform:none;box-shadow:none}
+.petal{transform-box:view-box;transform-origin:150px 150px;transition:transform 1.3s cubic-bezier(.3,1.5,.5,1)}
+#bud:not(.open) .petal{transform:rotate(var(--r)) scale(.2,.42)!important}
+#bud:not(.open) svg{animation:wig 1.4s ease-in-out infinite}
+@keyframes wig{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.hide{display:none!important}
+input[type=range]{width:100%;accent-color:var(--rose);height:34px}
+.big{font-size:52px;font-weight:800;color:var(--rose)}
+#runner{transition:left .16s,top .16s}
+#toast{position:fixed;left:50%;top:max(18px,env(safe-area-inset-top));transform:translate(-50%,-120px);background:var(--deep);color:#fff;padding:11px 20px;border-radius:18px;z-index:9;font-family:Caveat,cursive;font-size:24px;transition:transform .3s;width:max-content;max-width:calc(100vw - 32px)}
+#toast.on{transform:translate(-50%,0)}
+#game{touch-action:none;border-radius:24px;background:linear-gradient(#fff6f9cc,#ffd9e8cc);box-shadow:0 18px 50px rgba(143,22,80,.25);width:min(460px,100%);height:min(62dvh,560px)}
+.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-9px)}50%{transform:translateX(9px)}75%{transform:translateX(-5px)}}
+#cakes{display:flex;justify-content:center;gap:12px;margin:24px 0 8px}
+.candle{width:42px;height:112px;position:relative;background:none;box-shadow:none;padding:0;margin:0;border-radius:0}
+.candle:active{transform:none;box-shadow:none}
+.candle i{position:absolute;bottom:0;left:13px;width:16px;height:78px;border-radius:5px;background:repeating-linear-gradient(135deg,#fff 0 7px,var(--pink) 7px 14px)}
+.candle b{position:absolute;left:11px;top:0;width:20px;height:32px;border-radius:50% 50% 50% 50%/65% 65% 35% 35%;background:radial-gradient(#fff5b0,#ff9d3c);animation:fl .3s infinite alternate}
+.candle.out b{display:none}
+@keyframes fl{to{transform:scale(.88,1.12) rotate(4deg)}}
+input[type=text]{font:inherit;font-size:18px;width:100%;padding:14px 16px;border-radius:15px;border:3px solid var(--pink);text-align:center;background:#fff;color:var(--ink);outline:0}
+input[type=text]:focus{border-color:var(--rose)}
+#sad{width:110px;height:110px;margin:0 auto;transition:transform .5s,filter .5s}
+#sad.wilt{transform:rotate(38deg) translateY(12px);filter:saturate(.25)}
+#scratchwrap{position:relative;width:min(420px,100%);aspect-ratio:5/6;border-radius:24px;overflow:hidden;box-shadow:0 18px 50px rgba(143,22,80,.35)}
+#coupon{position:absolute;inset:0;background:var(--cream);padding:7% 7%;display:flex;flex-direction:column;justify-content:center;border:3px dashed var(--rose);border-radius:24px}
+#coupon h2{font-size:clamp(28px,8.4vw,42px);margin:.1em 0}
+#coupon ul{list-style:none;margin:8px 0 0;padding:0;font-size:clamp(13px,3.5vw,16px);line-height:1.45}
+#scratch{position:absolute;inset:0;width:100%;height:100%;touch-action:none;transition:opacity .7s;cursor:grab}
+#after{visibility:hidden}
+@media (prefers-reduced-motion:reduce){body{animation:none}}
+</style>
+</head>
+<body>
+<canvas id="petals"></canvas>
+<div id="toast"></div>
+
+<section class="screen on" id="s0">
+  <button id="bud" aria-label="Open the lily"></button>
+  <p class="hand" id="tap">psst… tap the bud</p>
+  <div id="hello" class="hide">
+    <h1>Happy Birthday, Vini</h1>
+    <p class="hand">There's a surprise in here. Sadly, you have to earn it.</p>
+    <button data-go="s1">I was born ready</button>
+  </div>
+</section>
+
+<section class="screen" id="s1"><div class="card" id="quiz"></div></section>
+
+<section class="screen" id="s2">
+  <h2 style="margin:0 0 2px">Catch 10 lilies</h2>
+  <p class="hand" style="margin:0 0 8px"><span id="score">0</span>/10 · bees are rude, dodge them</p>
+  <canvas id="game"></canvas>
+</section>
+
+<section class="screen" id="s3"><div class="card">
+  <h2>Blow out your candles</h2>
+  <p class="hand" id="cmsg">Tap each flame. Easy, right?</p>
+  <div id="cakes"></div>
+  <button id="wish" class="hide">Wish made. Next!</button>
+</div></section>
+
+<section class="screen" id="s4"><div class="card">
+  <div id="sad"></div>
+  <h2>The Final Lock</h2>
+  <p style="margin:0 0 6px">Your favourite series, the one we kept watching on YouTube.</p>
+  <p class="hand" id="pmsg">Type its full name. I believe in you.</p>
+  <form id="pform" autocomplete="off">
+    <input type="text" id="pw" placeholder="The password is…" aria-label="Password" autocapitalize="off" autocorrect="off" spellcheck="false">
+    <div style="margin-top:14px"><button>Unlock</button></div>
+  </form>
+</div></section>
+
+<section class="screen" id="s5">
+  <p class="hand" id="smsg" style="margin:0 0 10px">Scratch it. With feeling.</p>
+  <div id="scratchwrap">
+    <div id="coupon">
+      <p class="hand" style="margin:0">Happy Birthday, Vini · Official Coupon</p>
+      <h2>One Whole Day as Your Boyfriend</h2>
+      <ul>
+        <li>🌸 Valid for 24 hours, on any day you choose</li>
+        <li>🌸 You pick the plan. You have all rights. I have none.</li>
+        <li>🌸 Includes bag-carrying, photo-taking, and pink lilies</li>
+        <li>🌸 Agreeing with you is mandatory</li>
+        <li>🌸 Non-transferable. Only for you. Never expires.</li>
+      </ul>
+      <p class="hand" style="margin:10px 0 0">Extensions may be requested 😉</p>
+    </div>
+    <canvas id="scratch"></canvas>
+  </div>
+  <div id="after"><button id="save">Save my coupon</button></div>
+</section>
+
+<script>
+const $=s=>document.querySelector(s), R=(a,b)=>a+Math.random()*(b-a);
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function lily(size=300,cls=''){
+  let p='';const gid='g'+(lily.n=(lily.n||0)+1);
+  for(let i=0;i<6;i++){const a=i*60;
+    p+=`<g transform="rotate(${a} 150 150)"><g class="petal" style="--r:${-a}deg"><path d="M150 150C118 112 118 58 150 10C182 58 182 112 150 150Z" fill="url(#${gid})" stroke="#c2185b" stroke-opacity=".35"/><path d="M150 138V40" stroke="#b5145f" stroke-width="2.5" stroke-opacity=".55"/><circle cx="141" cy="96" r="2.6" fill="#8f1650"/><circle cx="158" cy="108" r="2.6" fill="#8f1650"/><circle cx="147" cy="118" r="2" fill="#8f1650"/></g></g>`;}
+  for(let i=0;i<6;i++){const t=(i*60+30)*Math.PI/180,x=150+Math.sin(t)*42,y=150-Math.cos(t)*42;
+    p+=`<path d="M150 150L${x} ${y}" stroke="#7fbf8e" stroke-width="3"/><ellipse cx="${x}" cy="${y}" rx="8" ry="4" fill="#b5541c" transform="rotate(${i*60+30} ${x} ${y})"/>`;}
+  return `<svg class="lily ${cls}" viewBox="0 0 300 300" width="100%" height="100%" aria-hidden="true"><defs><radialGradient id="${gid}" gradientUnits="userSpaceOnUse" cx="150" cy="150" r="145"><stop offset="0" stop-color="#fff0d0"/><stop offset=".22" stop-color="#e0267c"/><stop offset=".72" stop-color="#f47bb0"/><stop offset="1" stop-color="#ffe6f0"/></radialGradient></defs>${p}<circle cx="150" cy="150" r="9" fill="#9ccc65"/></svg>`;
+}
+$('#bud').innerHTML=lily(); $('#sad').innerHTML=lily();
+
+/* drifting petals, more wherever she touches */
+const pc=$('#petals'),px=pc.getContext('2d');let W,H,ps=[];
+function size(){W=pc.width=innerWidth;H=pc.height=innerHeight}
+addEventListener('resize',size);size();
+function np(x,y,burst){return{x:x??R(0,W),y:y??R(-H,0),r:R(7,15),a:R(0,6),va:R(-.04,.04),vy:burst?R(-5,2):R(.6,1.7),vx:burst?R(-5,5):R(-.4,.4),b:burst}}
+for(let i=0;i<(reduce?8:30);i++)ps.push(np());
+function burst(x,y,n){for(let i=0;i<n;i++)ps.push(np(x,y,1))}
+addEventListener('pointerdown',e=>burst(e.clientX,e.clientY,5));
+(function loop(){px.clearRect(0,0,W,H);
+  ps=ps.filter(p=>{p.x+=p.vx+Math.sin(p.y/50)*.5;p.y+=p.vy;p.a+=p.va;if(p.b)p.vy+=.1;
+    if(p.y>H+20){if(p.b)return false;p.y=-20;p.x=R(0,W)}
+    px.save();px.translate(p.x,p.y);px.rotate(p.a);px.fillStyle=p.r>11?'#e0267ccc':'#f9a8cbdd';px.beginPath();px.moveTo(0,-p.r);px.quadraticCurveTo(p.r*.7,0,0,p.r);px.quadraticCurveTo(-p.r*.7,0,0,-p.r);px.fill();px.restore();return true});
+  requestAnimationFrame(loop)})();
+
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2300)}
+function go(id){$('#runner')?.remove();document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));$('#'+id).classList.add('on');if(id==='s1')quiz(0);if(id==='s2')startGame();if(id==='s3')candles();if(id==='s5')scratch()}
+document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));
+$('#bud').onclick=e=>{if(e.currentTarget.classList.contains('open'))return burst(innerWidth/2,innerHeight/3,18);e.currentTarget.classList.add('open');$('#tap').classList.add('hide');$('#hello').classList.remove('hide');burst(innerWidth/2,innerHeight/3,70)};
+
+/* quiz */
+const Q=[
+ {t:'Security check. Are you the birthday girl?',a:[['Yes',1]],run:1},
+ {t:'Who is the better human in this friendship?',a:[['Me, Vini',"Correct."],['Obviously Vini',"Also correct."],['The one reading this',"Sneaky, and correct."]]},
+ {t:'Rate the person who made this website.',slider:1},
+ {t:'Do you promise not to laugh at what comes at the end?',a:[['I promise',"We both know that's a lie."],['I will absolutely laugh',"Honesty. I respect it."]]}
+];
+function quiz(i){if(i>=Q.length)return go('s2');const q=Q[i],c=$('#quiz');
+  c.innerHTML=`<p class="hand" style="margin:0">Question ${i+1} of ${Q.length}</p><h2>${q.t}</h2><div id="opts"></div>`;const o=$('#opts'),next=m=>{if(m&&m!==1)toast(m);quiz(i+1)};
+  if(q.slider){o.innerHTML='<div class="big" id="v">3</div><input type="range" id="r" min="0" max="10" value="3" aria-label="Rating"><p class="hand" id="sm">Be honest.</p><button id="n" class="hide">Submit truth</button>';
+    let v=3;const L=['Higher.','Your finger slipped. Higher.','Getting warmer.','Nearly accurate.'];let k=0;
+    $('#r').oninput=e=>{v=Math.min(10,v+(+e.target.value<v?2:1));e.target.value=v;$('#v').textContent=v;$('#sm').textContent=v>=10?'Finally, an accurate review.':L[k++%L.length];if(v>=10)$('#n').classList.remove('hide')};
+    $('#n').onclick=()=>next();return}
+  q.a.forEach(([l,m])=>{const b=document.createElement('button');b.textContent=l;b.onclick=()=>next(m);o.append(b)});
+  if(q.run){const b=document.createElement('button');b.id='runner';b.className='alt';b.textContent='No';o.append(b);let n=0;const S=['No','Nope','Stop it','Why though','😢','Fine, stay'];
+    const flee=e=>{e.preventDefault();n++;b.textContent=S[Math.min(n,S.length-1)];document.body.append(b);b.style.position='fixed';b.style.zIndex=5;b.style.left=R(12,innerWidth-150)+'px';b.style.top=R(60,innerHeight-90)+'px';b.onclick=()=>next('The No button has been sacked. Moving on.')};
+    b.addEventListener('pointerenter',e=>{if(n<6)flee(e)});b.addEventListener('pointerdown',e=>{if(n<6)flee(e)});}
+}
+
+/* game */
+let running=false;
+function startGame(){const c=$('#game'),x=c.getContext('2d'),dpr=Math.min(devicePixelRatio||1,2),w=c.clientWidth,h=c.clientHeight;c.width=w*dpr;c.height=h*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+  const img=new Image();img.src='data:image/svg+xml,'+encodeURIComponent(lily().replace('<svg ','<svg xmlns="http://www.w3.org/2000/svg" ').replace('width="100%" height="100%"','width="300" height="300"'));
+  let bx=w/2,items=[],score=0,t=0,dodges=0,last=0;running=true;$('#score').textContent=0;
+  const mv=e=>{const r=c.getBoundingClientRect();bx=Math.max(40,Math.min(w-40,e.clientX-r.left))};c.onpointermove=mv;c.onpointerdown=mv;
+  const Y=h-42;
+  function frame(now){if(!running)return;const dt=Math.min(2,(now-last)/16.7||1);last=now;t+=dt;
+    if(t>42){t=0;const bee=Math.random()<.27;items.push({x:R(26,w-26),y:-30,bee,v:R(2.8,4.4)+score*.14,s:R(0,6)})}
+    x.clearRect(0,0,w,h);
+    items=items.filter(o=>{o.y+=o.v*dt;o.s+=.08*dt;
+      if(!o.bee&&score===9&&dodges<2&&o.y>Y-95&&Math.abs(o.x-bx)<75){o.x=bx<w/2?R(w*.68,w-26):R(26,w*.32);dodges++;toast(dodges==1?'That lily has trust issues.':'It did it again!')}
+      const dx=o.bee?o.x+Math.sin(o.s)*20:o.x;
+      if(o.y>Y-22&&o.y<Y+22&&Math.abs(dx-bx)<52){
+        if(o.bee){score=Math.max(0,score-1);toast('Ow. Bee. Minus one.');c.classList.remove('shake');void c.offsetWidth;c.classList.add('shake')}
+        else{score++;const r=c.getBoundingClientRect();burst(r.left+bx,r.top+Y,10)}
+        $('#score').textContent=score;
+        if(score>=10){running=false;toast('Lily champion of the year!');setTimeout(()=>go('s3'),900)}
+        return false}
+      if(o.bee){x.font='34px serif';x.textAlign='center';x.textBaseline='middle';x.fillText('🐝',dx,o.y)}else if(img.complete)x.drawImage(img,o.x-29,o.y-29,58,58);
+      return o.y<h+40});
+    x.fillStyle='#d92f7e';x.beginPath();x.roundRect(bx-48,Y,96,30,[6,6,22,22]);x.fill();x.fillStyle='#fff';x.font='700 15px Fraunces,serif';x.textAlign='center';x.textBaseline='middle';x.fillText('VINI',bx,Y+15);
+    requestAnimationFrame(frame)}
+  requestAnimationFrame(frame)}
+
+/* trick candles */
+function candles(){const box=$('#cakes');box.innerHTML='';let tricks=4;const msgs=['Oh no. It came back.','These were very cheap candles.','Blow harder, birthday girl.','Last one, I swear.'];let m=0;
+  for(let i=0;i<5;i++){const b=document.createElement('button');b.className='candle';b.setAttribute('aria-label','Candle');b.innerHTML='<b></b><i></i>';
+    b.onclick=e=>{if(b.classList.contains('out'))return;b.classList.add('out');
+      if(tricks>0){tricks--;setTimeout(()=>{b.classList.remove('out');$('#cmsg').textContent=msgs[m++]},650)}
+      setTimeout(()=>{if(tricks===0&&[...box.children].every(c=>c.classList.contains('out'))){$('#cmsg').textContent='Finally. Now make a wish. A greedy one.';$('#wish').classList.remove('hide');burst(innerWidth/2,innerHeight/2,50)}},800)};
+    box.append(b)}
+}
+$('#wish').onclick=()=>go('s4');
+
+/* lock */
+const secret='dehcattadnifesaelp';let wrong=0;
+const W_=['Wrong. This lily is now sad.','Incorrect. Look what you did to the lily.','How could you forget our series?','Think: long evenings, one YouTube tab, zero productivity.','Three words. Sounds like the end of a work email.'];
+$('#pform').onsubmit=e=>{e.preventDefault();const v=$('#pw').value.toLowerCase().replace(/[^a-z]/g,'');
+  if([...v].reverse().join('')===secret){$('#sad').classList.remove('wilt');burst(innerWidth/2,innerHeight/3,90);toast('She remembers!');setTimeout(()=>go('s5'),900)}
+  else{$('#sad').classList.add('wilt');$('#pmsg').textContent=W_[Math.min(wrong++,W_.length-1)];const c=e.target.closest('.card');c.classList.remove('shake');void c.offsetWidth;c.classList.add('shake');$('#pw').value=''}};
+
+/* scratch card */
+function scratch(){const c=$('#scratch'),r=c.getBoundingClientRect(),x=c.getContext('2d',{willReadFrequently:true});c.width=r.width;c.height=r.height;
+  const g=x.createLinearGradient(0,0,r.width,r.height);g.addColorStop(0,'#e0267c');g.addColorStop(1,'#f9a8cb');x.fillStyle=g;x.fillRect(0,0,r.width,r.height);
+  x.fillStyle='#fff';x.textAlign='center';x.font='800 30px Fraunces,serif';x.fillText('Scratch here',r.width/2,r.height/2-8);x.font='700 26px Caveat,cursive';x.fillText('your prize is underneath 🌸',r.width/2,r.height/2+30);
+  x.globalCompositeOperation='destination-out';x.lineWidth=46;x.lineCap='round';let d=false,lx,ly,done=false,n=0;
+  const P=e=>{const b=c.getBoundingClientRect();return[e.clientX-b.left,e.clientY-b.top]};
+  c.onpointerdown=e=>{d=true;c.setPointerCapture(e.pointerId);[lx,ly]=P(e);x.beginPath();x.arc(lx,ly,23,0,7);x.fill()};
+  c.onpointerup=()=>d=false;
+  c.onpointermove=e=>{if(!d||done)return;const[a,b]=P(e);x.beginPath();x.moveTo(lx,ly);x.lineTo(a,b);x.stroke();lx=a;ly=b;
+    if(++n%14==0){const q=x.getImageData(0,0,c.width,c.height).data;let z=0,s=0;for(let i=3;i<q.length;i+=160){s++;if(!q[i])z++}
+      if(z/s>.5){done=true;c.style.opacity=0;setTimeout(()=>c.remove(),750);$('#smsg').textContent='Surprise. No refunds. 🌸';$('#after').style.visibility='visible';let k=0,iv=setInterval(()=>{burst(R(0,innerWidth),innerHeight*.25,28);if(++k>7)clearInterval(iv)},260)}}}
+}
+
+$('#save').onclick=()=>{const c=document.createElement('canvas');c.width=1080;c.height=1350;const x=c.getContext('2d');x.fillStyle='#fff6f9';x.fillRect(0,0,1080,1350);x.setLineDash([22,16]);x.lineWidth=8;x.strokeStyle='#d92f7e';x.strokeRect(44,44,992,1262);x.textAlign='center';
+  x.fillStyle='#d92f7e';x.font='700 62px Caveat,cursive';x.fillText('Happy Birthday, Vini · Official Coupon',540,220);
+  x.fillStyle='#8f1650';x.font='800 104px Fraunces,serif';['One Whole Day','as Your','Boyfriend'].forEach((l,i)=>x.fillText(l,540,400+i*124));
+  x.fillStyle='#4a0e2e';x.font='500 42px Fraunces,serif';['Valid for 24 hours, on any day you choose','You pick the plan. You have all rights. I have none.','Includes bag-carrying, photo-taking, and pink lilies','Agreeing with you is mandatory','Non-transferable. Only for you. Never expires.'].forEach((l,i)=>{x.font='500 '+(l.length>46?37:42)+'px Fraunces,serif';x.fillText(l,540,800+i*76)});
+  x.fillStyle='#d92f7e';x.font='700 58px Caveat,cursive';x.fillText('Extensions may be requested ;)',540,1230);
+  const a=document.createElement('a');a.download='vini-boyfriend-coupon.png';a.href=c.toDataURL('image/png');a.click()};
+</script>
+</body>
+</html>
